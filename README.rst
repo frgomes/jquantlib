@@ -37,9 +37,6 @@ On a Unix-like console
 
 ::
 
-    # branch from Launchpad
-    bzr branch lp:jquantlib
-
     # developer's guide
     firefox http://www.jquantlib.org/en/latest/developersguide.html
 
