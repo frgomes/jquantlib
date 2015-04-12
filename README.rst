@@ -33,12 +33,7 @@ On a Unix-like console
 For impatient developers
 ========================
 
-On a Unix-like console
-
-::
-
-    # developer's guide
-    firefox http://www.jquantlib.org/en/latest/developersguide.html
+More info: http://www.jquantlib.org/en/latest/developersguide.html
 
 Modules
 =======

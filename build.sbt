@@ -173,16 +173,16 @@ lazy val publishSettings =
       },
       pomIncludeRepository := { _ => false },
       pomExtra := {
-        <url>http://launchpad.net/jquantlib</url>
+        <url>http://github.com/frgomes/jquantlib</url>
           <licenses>
             <license>
               <name>BSD</name>
             </license>
           </licenses>
           <scm>
-            <connection>scm:bzr:lp:jquantlib</connection>
-            <developerConnection>scm:bzr:lp:jquantlib</developerConnection>
-            <url>http://launchpad.net/jquantlib</url>
+            <developerConnection>scm:git:git@github.com:frgomes/jquantlib.git</developerConnection>
+                         <connection>scm:git:github.com/frgomes/jquantlib.git</connection>
+                                 <url>http://github.com/frgomes/jquantlib</url>
           </scm>
           <developers>
             <developer>
