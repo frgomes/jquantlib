@@ -1,0 +1,17 @@
+/*
+ * JQAddIn.idl
+ *
+ * Created on 2009.04.02 - 14:26:05
+ *
+ */
+
+#ifndef _org_jquantlib_JQAddIn_
+#define _org_jquantlib_JQAddIn_
+
+#include "XJQAddIn.idl"
+
+module org { module jquantlib {
+    service JQAddIn : XJQAddIn;
+}; };
+
+#endif

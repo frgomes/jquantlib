@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest:manifest xmlns:manifest="http://openoffice.org/2001/manifest">
+  <manifest:file-entry manifest:media-type="application/vnd.sun.star.uno-typelibrary;type=RDB"
+                       manifest:full-path="types.rdb"/>
+  <manifest:file-entry manifest:media-type="application/vnd.sun.star.uno-component;type=Java"
+                       manifest:full-path="jquantlib-ooplugin.jar"/>
+  <manifest:file-entry manifest:media-type="application/vnd.sun.star.uno-typelibrary;type=Java"
+                       manifest:full-path="JQAddIn_IDL_types.jar"/>
+  <manifest:file-entry manifest:media-type="application/vnd.sun.star.configuration-data"
+                       manifest:full-path="registry/data/org/openoffice/Office/CalcAddins.xcu"/>
+</manifest:manifest>

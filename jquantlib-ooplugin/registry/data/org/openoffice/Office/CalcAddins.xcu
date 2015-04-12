@@ -1,0 +1,770 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<oor:component-data xmlns:oor="http://openoffice.org/2001/registry" xmlns:xs="http://www.w3.org/2001/XMLSchema" oor:name="CalcAddIns" oor:package="org.openoffice.Office">
+    <node oor:name="AddInInfo">
+        <node oor:name="org.jquantlib.jquantlib-ooplugin" oor:op="replace">
+            <node oor:name="AddInFunctions">
+                <node oor:name="JQlnFactorial" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQlnFactorial</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="parameter0" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">parameter0</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQfactorial" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQfactorial</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="n" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">n</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="BetaContinuedFraction" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">BetaContinuedFraction</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="BetaContinuedFraction" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">BetaContinuedFraction</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="b" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">b</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="x" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">x</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="accuracy" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">accuracy</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="a" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">a</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQIncompleteBetaFunction" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQIncompleteBetaFunction</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="accuracy" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">accuracy</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="maxiteration" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">maxiteration</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="x" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">x</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="b" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">b</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="a" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">a</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQBetaFunction" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQBetaFunction</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="z" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">z</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="w" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">w</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQEuropeanBlackScholes" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQEuropeanBlackScholes</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="strike" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">strike</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="underlying" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">underlying</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="riskFreeRate" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">riskFreeRate</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="volatility" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">volatility</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="dividendYield" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">dividendYield</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="optionType" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">optionType</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="settlementDay" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">settlementDay</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="settlementMonth" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">settlementMonth</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="settlementYear" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">settlementYear</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="maturityDay" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">maturityDay</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="maturityMonth" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">maturityMonth</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="maturityYear" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">maturityYear</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                      <node oor:name="JQEuropeanBlackScholesCall" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQEuropeanBlackScholesCall</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="strike" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">strike</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="underlying" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">underlying</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="riskFreeRate" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">riskFreeRate</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="volatility" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">volatility</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="dividendYield" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">dividendYield</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="settlementDay" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">settlementDay</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="settlementMonth" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">settlementMonth</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="settlementYear" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">settlementYear</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="maturityDay" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">maturityDay</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="maturityMonth" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">maturityMonth</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="maturityYear" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">maturityYear</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQBlackFormula" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQBlackFormula</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="strike" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">strike</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="stdDev" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">stdDev</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="forward" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">forward</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="optionType" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">optionType</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQEvaluatePoissonDistribution" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQEvaluatePoissonDistribution</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="mu" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">mu</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="sigma" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">sigma</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQEvaluateNonCentralChiSquaredDistribution" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQEvaluateNonCentralChiSquaredDistribution</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="df" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">df</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="x" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">x</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="ncp" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">ncp</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQEvaluateInverseCumulativePoisson" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQEvaluateInverseCumulativePoisson</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="lambda" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">lambda</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="x" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">x</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQEvaluateInverseCumulativeNormal" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQEvaluateInverseCumulativeNormal</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="average" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">average</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="sigma" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">sigma</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="x" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">x</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQEvaluateGammaDistribution" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQEvaluateGammaDistribution</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="a" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">a</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="x" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">x</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQEvaluateCumulativePoissonDistribution" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQEvaluateCumulativePoissonDistribution</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="mean" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">mean</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="k" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">k</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQEvaluateCumulativeNormalDistribution" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQEvaluateCumulativeNormalDistribution</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="mean" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">mean</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="sigma" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">sigma</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="z" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">z</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQEvaluateBinomialDistributionValue" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQEvaluateBinomialDistributionValue</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="probability" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">probability</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                        <node oor:name="k" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">k</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+                <node oor:name="JQGetPrimeNumberAt" oor:op="replace">
+                    <prop oor:name="DisplayName">
+                        <value xml:lang="nl">JQGetPrimeNumberAt</value>
+                    </prop>
+                    <prop oor:name="Description">
+                        <value/>
+                    </prop>
+                    <prop oor:name="Category">
+                        <value>Add-In</value>
+                    </prop>
+                    <prop oor:name="CompatibilityName">
+                        <value/>
+                    </prop>
+                    <node oor:name="Parameters">
+                        <node oor:name="absoluteIndex" oor:op="replace">
+                            <prop oor:name="DisplayName">
+                                <value xml:lang="nl">absoluteIndex</value>
+                            </prop>
+                            <prop oor:name="Description">
+                                <value/>
+                            </prop>
+                        </node>
+                    </node>
+                </node>
+            </node>
+        </node>
+    </node>
+</oor:component-data>

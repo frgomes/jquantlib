@@ -1,0 +1,59 @@
+/*
+ * XJQAddIn.idl
+ *
+ * Created on 2009.04.02 - 14:26:05
+ *
+ */
+
+#ifndef _org_jquantlib_XJQAddIn_
+#define _org_jquantlib_XJQAddIn_
+
+#include <com/sun/star/lang/XLocalizable.idl>
+
+#include <com/sun/star/uno/XInterface.idl>
+
+
+module org { module jquantlib {
+    interface XJQAddIn {
+        /// used to set an add-in locale for formatting reasons for example
+        [optional] interface ::com::sun::star::lang::XLocalizable;
+//got to make this double
+        long JQlnFactorial([in] long parameter0);
+
+        double JQfactorial([in] long n);
+
+        double BetaContinuedFraction([in] double BetaContinuedFraction, [in] double b, [in] double x, [in] double accuracy, [in] long a);
+
+        long JQIncompleteBetaFunction([in] double accuracy, [in] double maxiteration, [in] double x, [in] double b, [in] double a);
+
+        long JQBetaFunction([in] double z, [in] double w);
+
+        double JQEuropeanBlackScholes([in] double strike, [in] double underlying, [in] double riskFreeRate, [in] double volatility, [in] double dividendYield, [in] string optionType, [in] long settlementDay, [in] long settlementMonth, [in] long settlementYear, [in] long maturityDay, [in] long maturityMonth, [in] long maturityYear);
+
+     
+
+        double JQBlackFormula([in] double strike, [in] double stdDev, [in] double forward, [in] string optionType);
+
+        long JQEvaluatePoissonDistribution([in] double mu, [in] double sigma);
+
+        double JQEvaluateNonCentralChiSquaredDistribution([in] double df, [in] double x, [in] double ncp);
+
+        double JQEvaluateInverseCumulativePoisson([in] double lambda, [in] double x);
+
+        double JQEvaluateInverseCumulativeNormal([in] double average, [in] double sigma, [in] double x);
+
+        double JQEvaluateGammaDistribution([in] double a, [in] double x);
+
+        double JQEvaluateCumulativePoissonDistribution([in] double mean, [in] long k);
+
+        double JQEvaluateCumulativeNormalDistribution([in] double mean, [in] double sigma, [in] double z);
+
+        long JQEvaluateBinomialDistributionValue([in] double probability, [in] long k);
+
+        double JQGetPrimeNumberAt([in] double absoluteIndex);
+
+
+    };
+}; };
+
+#endif
