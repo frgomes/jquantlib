@@ -17,14 +17,15 @@ lazy val librarySettings : Seq[Setting[_]] =
   Seq(
     autoScalaLibrary :=  false,
     crossPaths       :=  false,
-    javacOptions     ++= Seq(
-      "-encoding", "UTF-8"
+    javacOptions     ++=
+      Seq(
+        "-encoding", "UTF-8"
     )
   )
 
 
 lazy val javadocSettings : Seq[Setting[_]] = Seq(
-  javacOptions  in (Compile,compile) ++= Seq("-source", "1.8", "-target", "1.8", "-Xlint"),
+  javacOptions  in (Compile,compile) ++= Seq("-source", "1.7", "-target", "1.7", "-Xlint"),
   javacOptions  in (Compile,doc)     ++= Seq("-Xdoclint", "-notimestamp", "-linksource")
 )
 
@@ -101,47 +102,39 @@ lazy val deps_samples : Seq[Setting[_]] =
   )
 
 
-
-
-
-
-
 // projects -----------------------------------------------------------------------------------------------------
-
-
-
 
 lazy val root =
   project.in(file("."))
-    .aggregate(jquantlib, `jquantlib-helpers`, `jquantlib-contrib`, `jquantlib-samples`)
     .settings(disablePublishing:_*)
+    .aggregate(core, helpers, contrib, samples)
 
-lazy val jquantlib =
+lazy val core =
   project.in(file("jquantlib"))
     .settings(librarySettings:_*)
     .settings(javadocSettings:_*)
     .settings(junitSettings:_*)
     .settings(deps_common:_*)
 
-lazy val `jquantlib-helpers` =
+lazy val helpers =
   project.in(file("jquantlib-helpers"))
-    .dependsOn(jquantlib)
+    .dependsOn(core)
     .settings(librarySettings:_*)
     .settings(javadocSettings:_*)
     .settings(junitSettings:_*)
     .settings(deps_common:_*)
 
-lazy val `jquantlib-contrib` =
+lazy val contrib =
   project.in(file("jquantlib-contrib"))
-    .dependsOn(jquantlib)
+    .dependsOn(core)
     .settings(librarySettings:_*)
     .settings(javadocSettings:_*)
     .settings(junitSettings:_*)
     .settings(deps_common:_*)
 
-lazy val `jquantlib-samples` =
+lazy val samples =
   project.in(file("jquantlib-samples"))
-    .dependsOn(jquantlib, `jquantlib-helpers`)
+    .dependsOn(core, helpers)
     .settings(librarySettings:_*)
     .settings(javadocSettings:_*)
     .settings(junitSettings:_*)

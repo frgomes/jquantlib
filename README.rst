@@ -26,9 +26,9 @@ On a Unix-like console
     # branch from Github with git
     git clone http://github.com/frgomes/jquantlib
 
-    # run demo
+    # run demo number 9 (EquityOptions)
     cd jquantlib
-    ./sbt clean run     # or simply `sbt clean run` if you have SBT installed
+    ./sbt clean samples/run     # or simply `sbt clean samples/run` if you have SBT installed
 
 For impatient developers
 ========================
