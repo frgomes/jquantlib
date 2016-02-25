@@ -3,8 +3,9 @@ import Keys._
 import com.typesafe.sbt.SbtPgp.PgpKeys.publishSigned
 import xerial.sbt.Sonatype.sonatypeSettings
 
-organization := "org.jquantlib"
-name         := "jquantlib"
+val `app.organization` = "org.jquantlib"
+val `app.name`         = "java"
+val `java.version`     = "1.7"
 
 
 autoScalaLibrary := false
@@ -23,11 +24,18 @@ lazy val librarySettings : Seq[Setting[_]] =
     )
   )
 
+lazy val disableJavadocs : Seq[Setting[_]] =
+  Seq(
+    publishArtifact in (Compile, packageDoc) := false,
+    publishArtifact in packageDoc := false,
+    sources in (Compile,doc) := Seq.empty
+  )
 
-lazy val javadocSettings : Seq[Setting[_]] = Seq(
-  javacOptions  in (Compile,compile) ++= Seq("-source", "1.7", "-target", "1.7", "-Xlint"),
-  javacOptions  in (Compile,doc)     ++= Seq("-Xdoclint", "-notimestamp", "-linksource")
-)
+lazy val javadocSettings : Seq[Setting[_]] =
+  Seq(
+    javacOptions  in (Compile,compile) ++= Seq("-source", `java.version`, "-target", `java.version`, "-Xlint"),
+    javacOptions  in (Compile,doc)     ++= Seq("-Xdoclint", "-notimestamp", "-linksource")
+  )
 
 
 /*
@@ -104,41 +112,56 @@ lazy val deps_samples : Seq[Setting[_]] =
 
 // projects -----------------------------------------------------------------------------------------------------
 
+def makeRoot(p: sbt.Project): sbt.Project =
+  p.settings(
+    disablePublishing ++
+      Seq(
+        organization := `app.organization`,
+        name := `app.name`): _*)
+
+def makeModule(p: sbt.Project, forceName: String): sbt.Project =
+  p.settings(
+    librarySettings ++
+    publishSettings ++
+    //paranoidOptions ++ 
+    //otestFramework ++
+      Seq(
+        organization := `app.organization`,
+        name := `app.name` + "-" + forceName): _*)
+
+def makeModule(p: sbt.Project): sbt.Project =
+  p.settings(
+    librarySettings ++
+    publishSettings ++
+    //paranoidOptions ++
+    //javadocSettings ++
+    disableJavadocs ++
+    junitSettings ++
+    // otestFramework ++
+    deps_common ++
+      Seq(
+        organization := `app.organization`,
+        name := `app.name` + "-" + name.value): _*)
+
+
 lazy val root =
-  project.in(file("."))
-    .settings(disablePublishing:_*)
+   makeRoot(project.in(file(".")))
     .aggregate(core, helpers, contrib, samples)
 
 lazy val core =
-  project.in(file("jquantlib"))
-    .settings(librarySettings:_*)
-    .settings(javadocSettings:_*)
-    .settings(junitSettings:_*)
-    .settings(deps_common:_*)
+  makeModule(project.in(file("jquantlib")))
 
 lazy val helpers =
-  project.in(file("jquantlib-helpers"))
+  makeModule(project.in(file("jquantlib-helpers")))
     .dependsOn(core)
-    .settings(librarySettings:_*)
-    .settings(javadocSettings:_*)
-    .settings(junitSettings:_*)
-    .settings(deps_common:_*)
 
 lazy val contrib =
-  project.in(file("jquantlib-contrib"))
+  makeModule(project.in(file("jquantlib-contrib")))
     .dependsOn(core)
-    .settings(librarySettings:_*)
-    .settings(javadocSettings:_*)
-    .settings(junitSettings:_*)
-    .settings(deps_common:_*)
 
 lazy val samples =
-  project.in(file("jquantlib-samples"))
+  makeModule(project.in(file("jquantlib-samples")))
     .dependsOn(core, helpers)
-    .settings(librarySettings:_*)
-    .settings(javadocSettings:_*)
-    .settings(junitSettings:_*)
-    .settings(deps_common:_*)
     .settings(deps_samples:_*)
 
 
