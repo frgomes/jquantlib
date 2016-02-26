@@ -3,14 +3,20 @@ import Keys._
 import com.typesafe.sbt.SbtPgp.PgpKeys.publishSigned
 import xerial.sbt.Sonatype.sonatypeSettings
 
-val `app.organization` = "org.jquantlib"
-val `app.name`         = "java"
-val `java.version`     = "1.7"
+val `app.organization` = "org.jquantlib.java"
+val `app.name`         = None
+val `app.description`  = "JQuantLib is a library for Quantitative Finance written in 100% Java."
+val `app.license`      = ("BSD Simplified", url("http://opensource.org/licenses/BSD-2-Clause"))
 
+val `bintray.organization`  = Some("jquantlib.org")
+val `bintray.packagelabels` = Seq("java", "scala", "quantitative", "finance", "models")
 
-autoScalaLibrary := false
-crossPaths := false
-
+val `java.version`            = "1.7"
+val `junit.version`           = "4.12"
+val `junit-interface.version` = "0.11"
+val `slf4j.version`           = "1.4.0"
+val `jcip.version`            = "1.0"
+val `jfreechart.version`      = "1.0.0"
 
 // compilation --------------------------------------------------------------------------------------------------
 
@@ -36,6 +42,124 @@ lazy val javadocSettings : Seq[Setting[_]] =
     javacOptions  in (Compile,compile) ++= Seq("-source", `java.version`, "-target", `java.version`, "-Xlint"),
     javacOptions  in (Compile,doc)     ++= Seq("-Xdoclint", "-notimestamp", "-linksource")
   )
+
+// test frameworks ----------------------------------------------------------------------------------------------
+
+lazy val junitSettings : Seq[Setting[_]] =
+  Seq(
+    libraryDependencies ++= Seq(
+      "junit"        % "junit"           % `junit.version`           % "test",
+      "com.novocode" % "junit-interface" % `junit-interface.version` % "test" ),
+    testOptions += Tests.Argument(TestFrameworks.JUnit, "-q", "-v")
+  )
+
+// dependencies -------------------------------------------------------------------------------------------------
+
+lazy val deps_common : Seq[Setting[_]] =
+  Seq(
+    libraryDependencies ++= Seq(
+      "net.jcip"               %  "jcip-annotations"                      % `jcip.version`,
+      "org.slf4j"              %  "slf4j-api"                             % `slf4j.version`,
+      "org.slf4j"              %  "slf4j-simple"                          % `slf4j.version`       % "test"
+    )
+  )
+
+lazy val deps_samples : Seq[Setting[_]] =
+  Seq(
+    libraryDependencies ++= Seq(
+      "jfree"                  %  "jfreechart"                            % `jfreechart.version`
+    )
+  )
+
+// projects -----------------------------------------------------------------------------------------------------
+
+def makeRoot(p: sbt.Project): sbt.Project =
+  p.settings(
+    disablePublishing ++
+      Seq(
+        organization := `app.organization`,
+        version      := (version in ThisBuild).value,
+        description  := `app.description`,
+        licenses     += `app.license`
+      ): _*)
+
+def makeModule(p: sbt.Project): sbt.Project =
+  p.settings(
+    librarySettings ++
+    publishSettings ++
+    //paranoidOptions ++
+    //javadocSettings ++
+    disableJavadocs ++
+    junitSettings ++
+    // otestFramework ++
+    deps_common ++
+      Seq(
+        organization := `app.organization`,
+        version      := (version in ThisBuild).value,
+        description  := `app.description`,
+        licenses     += `app.license`
+      ): _*)
+
+
+lazy val root =
+   makeRoot(project.in(file(".")))
+    .aggregate(core, helpers, contrib, samples)
+
+lazy val core =
+  makeModule(project.in(file("jquantlib")))
+
+lazy val helpers =
+  makeModule(project.in(file("jquantlib-helpers")))
+    .dependsOn(core)
+
+lazy val contrib =
+  makeModule(project.in(file("jquantlib-contrib")))
+    .dependsOn(core)
+
+lazy val samples =
+  makeModule(project.in(file("jquantlib-samples")))
+    .dependsOn(core, helpers)
+    .settings(deps_samples:_*)
+
+// publish settings ---------------------------------------------------------------------------------------------
+
+lazy val disablePublishing: Seq[Setting[_]] =
+  sonatypeSettings ++
+    Seq(
+      publishArtifact := false,
+      publishSigned := (),
+      publish := (),
+      publishLocal := ()
+    )
+
+lazy val publishSettings: Seq[Setting[_]] =
+  Seq(
+    name                 in bintray := name.value,
+    bintrayOrganization  in bintray := `bintray.organization`,
+    bintrayRepository    in bintray := (if((version in ThisBuild).value.contains("SNAPSHOT")) "snapshots" else "releases"),
+    bintrayPackageLabels in bintray := `bintray.packagelabels`,
+    pomExtra := `pom.extra`
+  )
+
+// --------------------------------------------------------------------------------------------------------------
+
+val `pom.extra` =
+  <scm>
+    <developerConnection>scm:git:git@github.com:frgomes/jquantlib.git</developerConnection>
+                 <connection>scm:git:github.com/frgomes/jquantlib.git</connection>
+                         <url>http://github.com/frgomes/jquantlib</url>
+  </scm>
+  <developers>
+    <developer>
+      <id>frgomes</id>
+      <name>Richard Gomes</name>
+      <url>http://rgomes-info.blogspot.com</url>
+    </developer>
+  </developers>
+
+// --------------------------------------------------------------------------------------------------------------
+
+
 
 
 /*
@@ -76,136 +200,3 @@ TODO: Translate to SBT
     }
 
 */
-
-
-
-
-// test frameworks ----------------------------------------------------------------------------------------------
-
-lazy val junitSettings : Seq[Setting[_]] =
-  Seq(
-    libraryDependencies ++= Seq(
-      "junit"        % "junit"           % "4.12"    % "test",
-      "com.novocode" % "junit-interface" % "0.11"    % "test" ),
-    testOptions += Tests.Argument(TestFrameworks.JUnit, "-q", "-v")
-  )
-
-
-// dependencies -------------------------------------------------------------------------------------------------
-
-lazy val deps_common : Seq[Setting[_]] =
-  Seq(
-    libraryDependencies ++= Seq(
-      "org.slf4j"              %  "slf4j-api"                             % "1.4.0",
-      "net.jcip"               %  "jcip-annotations"                      % "1.0",
-      "org.slf4j"              %  "slf4j-simple"                          % "1.4.0"       % "test"
-    )
-  )
-
-lazy val deps_samples : Seq[Setting[_]] =
-  Seq(
-    libraryDependencies ++= Seq(
-      "jfree"                  %  "jfreechart"                            % "1.0.0"
-    )
-  )
-
-
-// projects -----------------------------------------------------------------------------------------------------
-
-def makeRoot(p: sbt.Project): sbt.Project =
-  p.settings(
-    disablePublishing ++
-      Seq(
-        organization := `app.organization`,
-        name := `app.name`): _*)
-
-def makeModule(p: sbt.Project, forceName: String): sbt.Project =
-  p.settings(
-    librarySettings ++
-    publishSettings ++
-    //paranoidOptions ++ 
-    //otestFramework ++
-      Seq(
-        organization := `app.organization`,
-        name := `app.name` + "-" + forceName): _*)
-
-def makeModule(p: sbt.Project): sbt.Project =
-  p.settings(
-    librarySettings ++
-    publishSettings ++
-    //paranoidOptions ++
-    //javadocSettings ++
-    disableJavadocs ++
-    junitSettings ++
-    // otestFramework ++
-    deps_common ++
-      Seq(
-        organization := `app.organization`,
-        name := `app.name` + "-" + name.value): _*)
-
-
-lazy val root =
-   makeRoot(project.in(file(".")))
-    .aggregate(core, helpers, contrib, samples)
-
-lazy val core =
-  makeModule(project.in(file("jquantlib")))
-
-lazy val helpers =
-  makeModule(project.in(file("jquantlib-helpers")))
-    .dependsOn(core)
-
-lazy val contrib =
-  makeModule(project.in(file("jquantlib-contrib")))
-    .dependsOn(core)
-
-lazy val samples =
-  makeModule(project.in(file("jquantlib-samples")))
-    .dependsOn(core, helpers)
-    .settings(deps_samples:_*)
-
-
-
-// publish settings ---------------------------------------------------------------------------------------------
-
-lazy val disablePublishing =
-  sonatypeSettings ++
-    Seq(
-      publishArtifact := false,
-      publishSigned := (),
-      publish := (),
-      publishLocal := ()
-    )
-
-lazy val publishSettings =
-  sonatypeSettings ++
-    Seq(
-      publishTo := {
-        val nexus = "https://oss.sonatype.org/"
-        if (isSnapshot.value)
-          Some("snapshots" at nexus + "content/repositories/snapshots")
-        else
-          Some("releases"  at nexus + "service/local/staging/deploy/maven2")
-      },
-      pomIncludeRepository := { _ => false },
-      pomExtra := {
-        <url>http://github.com/frgomes/jquantlib</url>
-          <licenses>
-            <license>
-              <name>BSD</name>
-            </license>
-          </licenses>
-          <scm>
-            <developerConnection>scm:git:git@github.com:frgomes/jquantlib.git</developerConnection>
-                         <connection>scm:git:github.com/frgomes/jquantlib.git</connection>
-                                 <url>http://github.com/frgomes/jquantlib</url>
-          </scm>
-          <developers>
-            <developer>
-              <id>frgomes</id>
-              <name>Richard Gomes</name>
-              <url>http://rgomes-info.blogspot.com</url>
-            </developer>
-          </developers>
-      }
-    )
